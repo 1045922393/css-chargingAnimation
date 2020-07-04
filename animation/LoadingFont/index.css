@@ -1,0 +1,80 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-width: 95vw;
+  min-height: 95vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(1px);
+}
+.loading {
+  color: rgba(0, 0, 0, 0.061);
+  font-size: 50px;
+  letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0 50px #fff, 0 0 2px #fff inset;
+  border-radius: 10px;
+  background: #fff;
+  animation: color 1s ease infinite;
+}
+.mask {
+  color: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0;
+  animation: grow 3s ease infinite alternate;
+  text-shadow: 0 0 1px #000;
+}
+.mask span:nth-child(1) {
+  color: #59eb59;
+}
+.mask span:nth-child(2) {
+  color: #ac4040;
+}
+.mask span:nth-child(3) {
+  color: #8a44cc;
+}
+.mask span:nth-child(4) {
+  color: #4ac1f0;
+}
+.mask span:nth-child(5) {
+  color: #da2121;
+}
+.mask span:nth-child(6) {
+  color: #fdec00;
+}
+.mask span:nth-child(7) {
+  color: #131ca5;
+}
+.mask span:nth-child(8) {
+  color: #00fd0d;
+}
+.mask span:nth-child(9) {
+  color: #fd0000;
+}
+.mask span:nth-child(10) {
+  color: #00fdc6;
+}
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes color {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

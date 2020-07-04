@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+body {
+  min-width: 95vw;
+  min-height: 100vh;
+  background: linear-gradient(120deg, transparent, black);
+  position: relative;
+  filter: blur(1px);
+}
+.loading {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  line-height: 200px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 50%;
+  border-top: 10px solid white;
+  animation: rotate 5s linear infinite;
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #000, 0 0 50px #000, 0 0 60px #000, 0 0 10px #fff inset, 0 0 20px #fff inset, 0 0 30px #fff inset, 0 0 40px #000 inset, 0 0 50px #000 inset, 0 0 60px #000 inset;
+}
+.loading:before,
+.loading:after {
+  content: '';
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  border-radius: 50%;
+  border-top: 10px solid white;
+  z-index: -1;
+}
+.loading span {
+  content: '';
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: -10px;
+  left: 0;
+  border-radius: 50%;
+  z-index: 1;
+  border-top: 10px solid white;
+}
+.loading span:nth-child(1) {
+  transform: rotate(60deg);
+}
+.loading span:nth-child(2) {
+  transform: rotate(180deg);
+}
+.loading span:nth-child(3) {
+  transform: rotate(270deg);
+}
+.loading:after {
+  transform: rotate(240deg);
+}
+.loading:before {
+  transform: rotate(120deg);
+}
+@keyframes rotate {
+  from {
+    filter: hue-rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotateBack {
+  from {
+    filter: hue-rotate(0);
+    transform: rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

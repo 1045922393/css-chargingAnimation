@@ -1,0 +1,84 @@
+@time: 3s;
+@color: #fff;
+* {
+  padding: 0;
+  margin: 0;
+}
+body{
+  min-width: 95vw;
+  min-height: 95vh;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: blur(1px);
+}
+
+.loading {
+  color: rgba(0, 0, 0, 0.061);
+  font-size: 50px;
+  letter-spacing: 0.02em;
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0 50px @color, 0 0 2px @color inset;
+  border-radius: 10px;
+  background: @color;
+  animation: color @time/3 ease infinite;
+}
+
+.mask {
+  color: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 0;
+  animation: grow @time ease infinite alternate;
+  text-shadow: 0 0 1px #000;
+  span:nth-child(1){
+    color: rgb(89, 235, 89);
+  }
+  span:nth-child(2){
+    color: rgb(172, 64, 64);
+  }
+  span:nth-child(3){
+    color: rgb(138, 68, 204);
+  }
+  span:nth-child(4){
+    color: rgb(74, 193, 240);
+  }
+  span:nth-child(5){
+    color: rgb(218, 33, 33);
+  }
+  span:nth-child(6){
+    color: rgb(253, 236, 0);
+  }
+  span:nth-child(7){
+    color: rgb(19, 28, 165);
+  }
+  span:nth-child(8){
+    color: rgb(0, 253, 13);
+  }
+  span:nth-child(9){
+    color: rgb(253, 0, 0);
+  }
+  span:nth-child(10){
+    color: rgb(0, 253, 198);
+  }
+}
+@keyframes grow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes color {
+  from {
+    filter: hue-rotate(0);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}

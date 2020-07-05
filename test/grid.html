@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bigEnv {
+      background: linear-gradient(to right, black 0%, white 50%, black 100%);
+      background-size: 50%;
+      animation: run 10s linear infinite;
+    }
+
+    @keyframes run {
+      0% {
+        background-position: 0% 0%;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    .out {
+      width: 600px;
+      height: 600px;
+      background-color: black;
+      overflow: hidden;
+      display: grid;
+      border-radius: 50%;
+      grid-template-columns: [a] 33.33% [b] 33.33% [c] 33.33% [d];
+      animation: cir 10s linear infinite;
+    }
+
+    @keyframes cir {
+      0% {
+        transform: rotate(0deg) scale(0.5);
+      }
+
+      50% {
+        transform: rotate(180deg) scale(0.6);
+
+      }
+
+      100% {
+        transform: rotate(360deg) scale(0.5);
+      }
+    }
+
+    .son {
+      background: var(--i);
+    }
+
+    .son:hover {
+      background: var(--b);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bigEnv">
+
+    <div class="out">
+      <div class="son" style="--b:#f00;--i:#fff"></div>
+      <div class="son" style="--b:#000;--i:#000"></div>
+      <div class="son" style="--b:#f00;--i:#fff"></div>
+      <div class="son" style="--b:#000;--i:#000"></div>
+      <div class="son" style="--b:#f00;--i:#fff;border-radius: 50%"></div>
+      <div class="son" style="--b:#000;--i:#000"></div>
+      <div class="son" style="--b:#f00;--i:#fff"></div>
+      <div class="son" style="--b:#000;--i:#000"></div>
+      <div class="son" style="--b:#f00;--i:#fff"></div>
+    </div>
+  </div>
+</body>
+
+</html>

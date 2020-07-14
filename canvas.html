@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>vue -- mvvm</title>
+</head>
+
+<body>
+  <div id="app">
+    <canvas id="canvas" ref="canvas"></canvas>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- <script src="./js/vm.js"></script> -->
+<script>
+  var vm = new Vue({
+    el: "#app",
+    data() {
+      return {
+        canvas: "",
+        ctx: "",
+        words: [],
+        cW: "",
+        cH: "",
+        text: "",
+        textX: ""
+      };
+    },
+    mounted() {
+      this.initcanvas_()
+    },
+    methods: {
+      initcanvas_() {
+        this.canvas = this.$refs.canvas;
+        this.ctx = this.canvas.getContext("2d");
+        this.cW = this.canvas.width = window.innerWidth;
+        this.cH = this.canvas.height = window.innerHeight;
+        this.ctx.fillStyle = this.randomColor();
+        this.words = Array(256)
+          .join("1")
+          .split("");
+        setInterval(() => {
+          this.canvasDraw();
+        }, 50);
+      },
+      canvasDraw() {
+        this.ctx.fillStyle = "rgba(0,0,0,0.25)";
+        this.ctx.fillRect(0, 0, this.cW, this.cH);
+        this.ctx.fillStyle = this.randomColor();
+        this.words.map((e, index) => {
+          // this.text = String.fromCharCode(Math.ceil(65 + Math.random() * 57));
+          this.text = Math.random()>0.5?1:0;
+          this.textX = index * 10;
+          this.ctx.fillText(this.text, this.textX, e);
+          this.words[index] = e > 758 + Math.random() * 484 ? 0 : e + 10;
+        });
+      },
+      randomColor() {
+        return "#" + (item => {
+          return new Array(7 - item.length).join("0") + item;
+        })((Math.random() * 0x1000000 << 0).toString(16))
+      }
+    }
+  })
+</script>
+
+</html>
